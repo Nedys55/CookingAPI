@@ -63,32 +63,6 @@ export const getSuscriberbyId = async (req, res) => {
   }
 };
 
-export const joinCourse = async (req, res) => {
-  try {
-    // const course = await Course.findById(req.params.id);
-
-
-    const subscriber = await Subscriber.findOne({email});
-    if (subscriber) {
-      sub.courses.push(Course.findById(req.params.id))
-    }
-
-    await subscriber.save()
-
-    res.status(200).send({
-      success: true,
-      message: "Course joined successfully",
-      subscriber,
-    });
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({
-      message: "error join course",
-      success: false,
-      error,
-    });
-  }
-};
 
 export const updateSubscriberById = async (req, res) => {
   try {

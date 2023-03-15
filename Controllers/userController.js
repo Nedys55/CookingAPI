@@ -111,21 +111,6 @@ export const loginUser = async (req, res) => {
   }
 };
 
-export const logoutUser = async (req, res) => {
-  try {
-    req.logout();
-    res.send("successfully logout");
-    res.redirect("/api/users/login");
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({
-      message: "error logout user",
-      success: false,
-      error,
-    });
-  }
-};
-
 export const getUserById = async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
